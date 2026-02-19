@@ -1,0 +1,40 @@
+.add-transaction-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.add-transaction-page.dark .page-header h1 {
+  color: #f3f4f6;
+}
+
+.page-header p {
+  color: #6b7280;
+  margin: 0;
+}
+
+.add-transaction-page.dark .page-header p {
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .add-transaction-page {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+}

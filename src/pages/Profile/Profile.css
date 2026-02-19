@@ -1,0 +1,376 @@
+.profile-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.profile-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.profile-page.dark .profile-header h1 {
+  color: #f3f4f6;
+}
+
+.profile-header p {
+  color: #6b7280;
+  margin: 0;
+}
+
+.profile-page.dark .profile-header p {
+  color: #9ca3af;
+}
+
+.profile-message {
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+.profile-message.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.profile-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.profile-page.dark .profile-card {
+  background: linear-gradient(145deg, #1e1e2f, #252538);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.user-details {
+  flex: 1;
+}
+
+.display-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.display-name h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.profile-page.dark .display-name h2 {
+  color: #f3f4f6;
+}
+
+.edit-btn {
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+.edit-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edit-name input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.profile-page.dark .edit-name input {
+  background: #2a2a3d;
+  color: #f3f4f6;
+}
+
+.edit-name input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn {
+  background: #10b981;
+  color: white;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #059669;
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.profile-page.dark .cancel-btn {
+  background: #3d3d52;
+  color: #9ca3af;
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+}
+
+.user-email,
+.user-joined {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.profile-page.dark .user-email,
+.profile-page.dark .user-joined {
+  color: #9ca3af;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.profile-page.dark .stat-card {
+  background: linear-gradient(145deg, #1e1e2f, #252538);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.stat-icon.income {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.stat-icon.expense {
+  background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+}
+
+.stat-icon.transactions {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.profile-page.dark .stat-label {
+  color: #9ca3af;
+}
+
+.stat-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.profile-page.dark .stat-value {
+  color: #f3f4f6;
+}
+
+.stat-value.positive {
+  color: #10b981;
+}
+
+.stat-value.negative {
+  color: #ef4444;
+}
+
+.monthly-summary h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1.5rem 0;
+}
+
+.profile-page.dark .monthly-summary h3 {
+  color: #f3f4f6;
+}
+
+.monthly-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.monthly-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.monthly-stat .label {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.profile-page.dark .monthly-stat .label {
+  color: #9ca3af;
+}
+
+.monthly-stat .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.profile-page.dark .monthly-stat .value {
+  color: #f3f4f6;
+}
+
+.monthly-stat .value.positive {
+  color: #10b981;
+}
+
+.monthly-stat .value.negative {
+  color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 1rem;
+  }
+
+  .user-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .display-name {
+    justify-content: center;
+  }
+
+  .user-email,
+  .user-joined {
+    justify-content: center;
+  }
+
+  .edit-name {
+    flex-direction: column;
+  }
+
+  .edit-name input {
+    width: 100%;
+  }
+
+  .edit-actions {
+    justify-content: center;
+  }
+}
