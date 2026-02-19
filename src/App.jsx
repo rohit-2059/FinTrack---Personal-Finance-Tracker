@@ -5,6 +5,7 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { TransactionProvider } from './context/TransactionContext';
 import PrivateRoute from './components/PrivateRoute';
 import Sidebar from './components/Sidebar/Sidebar';
+import Footer from './components/Footer/Footer';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AddTransaction from './pages/AddTransaction/AddTransaction';
 import Profile from './pages/Profile/Profile';
@@ -32,8 +33,8 @@ function AppLayout() {
           setMobileMenuOpen={setMobileMenuOpen}
         />
       )}
-      <main
-        className={`min-h-screen transition-all duration-300 ${
+      <div
+        className={`min-h-screen flex flex-col transition-all duration-300 ${
           showSidebar
             ? sidebarCollapsed
               ? 'lg:ml-[72px]'
@@ -41,44 +42,47 @@ function AppLayout() {
             : ''
         }`}
       >
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/add-transaction"
-            element={
-              <PrivateRoute>
-                <AddTransaction />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/transactions"
-            element={
-              <PrivateRoute>
-                <Transactions />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <PrivateRoute>
-                <Profile />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/add-transaction"
+              element={
+                <PrivateRoute>
+                  <AddTransaction />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/transactions"
+              element={
+                <PrivateRoute>
+                  <Transactions />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        {showSidebar && <Footer />}
+      </div>
     </div>
   );
 }
