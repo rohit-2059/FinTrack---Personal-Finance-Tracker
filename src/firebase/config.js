@@ -2,15 +2,15 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
-// Firebase configuration - replace with your own Firebase project credentials
+// Firebase configuration - using environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyBJRJ2-vMYo0Nhtq0LXDUlK10ZTv2mWVRk",
-  authDomain: "personal-finance-tracker-ed1a4.firebaseapp.com",
-  projectId: "personal-finance-tracker-ed1a4",
-  storageBucket: "personal-finance-tracker-ed1a4.firebasestorage.app",
-  messagingSenderId: "174294241564",
-  appId: "1:174294241564:web:0fd939edc87d0eff836ad9",
-  measurementId: "G-2R1XN7YYW3"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
