@@ -50,12 +50,12 @@ function TransactionList({ limit, showFilters: enableFilters = true, title = 'Re
   }
 
   return (
-    <div className={`rounded-xl p-5 ${darkMode
+    <div className={`rounded-xl p-3 sm:p-5 ${darkMode
       ? 'bg-[#16161e] border border-[#1e1e2a]'
       : 'bg-white border border-slate-200'
     }`}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 mb-4">
         <h2 className={`text-sm font-medium ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
           {title}
         </h2>
@@ -69,7 +69,7 @@ function TransactionList({ limit, showFilters: enableFilters = true, title = 'Re
               onClick={() => setShowFilters(!showFilters)}
             >
               <FaSlidersH size={11} />
-              Filters
+              <span className="hidden xs:inline">Filters</span>
             </button>
           )}
           {limit && (
@@ -106,7 +106,7 @@ function TransactionList({ limit, showFilters: enableFilters = true, title = 'Re
 
       {/* Filters */}
       {enableFilters && showFilters && (
-        <div className={`grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 rounded-lg mb-3 ${darkMode ? 'bg-[#111118]' : 'bg-slate-50'}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-3 rounded-lg mb-3 ${darkMode ? 'bg-[#111118]' : 'bg-slate-50'}`}>
           <div>
             <label className={`block text-[10px] font-semibold uppercase tracking-wider mb-1 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
               Type

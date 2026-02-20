@@ -70,8 +70,8 @@ function TransactionItem({ transaction }) {
 
   if (isEditing) {
     return (
-      <div className={`flex flex-col gap-3 p-4 rounded-lg border ${darkMode ? 'bg-[#111118] border-slate-600' : 'bg-slate-50 border-slate-300'}`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+      <div className={`flex flex-col gap-3 p-3 sm:p-4 rounded-lg border ${darkMode ? 'bg-[#111118] border-slate-600' : 'bg-slate-50 border-slate-300'}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <input
             type="text"
             value={editData.title}
@@ -112,24 +112,24 @@ function TransactionItem({ transaction }) {
             type="date"
             value={editData.date}
             onChange={(e) => setEditData({ ...editData, date: e.target.value })}
-            className={inputClass}
+            className={`${inputClass} sm:col-span-2`}
           />
         </div>
         <div className="flex gap-2 justify-end">
           <button
-            className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition-all cursor-pointer"
+            className="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition-all cursor-pointer"
             onClick={handleSave}
           >
-            <FaCheck size={12} />
+            <FaCheck size={13} />
           </button>
           <button
-            className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
+            className={`w-9 h-9 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
               ? 'bg-[#1e1e2a] text-slate-400 hover:bg-[#252530]'
               : 'bg-slate-200 text-slate-500 hover:bg-slate-300'
             }`}
             onClick={() => setIsEditing(false)}
           >
-            <FaTimes size={12} />
+            <FaTimes size={13} />
           </button>
         </div>
       </div>
@@ -137,62 +137,125 @@ function TransactionItem({ transaction }) {
   }
 
   return (
-    <div className={`flex items-center gap-3.5 px-3.5 py-3 rounded-lg transition-all group ${isDeleting ? 'opacity-0 translate-x-full' : ''} ${darkMode
+    <div className={`rounded-lg transition-all group ${isDeleting ? 'opacity-0 translate-x-full' : ''} ${darkMode
       ? 'hover:bg-[#1a1a24]'
       : 'hover:bg-slate-50'
     }`}>
-      {/* Icon */}
-      <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${darkMode
-        ? 'bg-slate-800 text-slate-400'
-        : 'bg-slate-100 text-slate-500'
-      }`}>
-        <IconComponent size={14} />
-      </div>
+      {/* Mobile Layout (< 640px) */}
+      <div className="flex sm:hidden flex-col gap-2 px-3.5 py-3">
+        <div className="flex items-start gap-3">
+          {/* Icon */}
+          <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${darkMode
+            ? 'bg-slate-800 text-slate-400'
+            : 'bg-slate-100 text-slate-500'
+          }`}>
+            <IconComponent size={16} />
+          </div>
 
-      {/* Details */}
-      <div className="flex-1 min-w-0">
-        <h4 className={`text-sm font-medium truncate ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
-          {transaction.title}
-        </h4>
-        <div className="flex items-center gap-2 mt-0.5">
-          <span className={`text-[10px] px-1.5 py-0.5 rounded ${darkMode ? 'bg-[#1e1e2a] text-slate-400' : 'bg-slate-100 text-slate-500'}`}>
-            {transaction.category}
+          {/* Details */}
+          <div className="flex-1 min-w-0">
+            <h4 className={`text-base font-medium ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
+              {transaction.title}
+            </h4>
+            <div className="flex flex-wrap items-center gap-2 mt-1">
+              <span className={`text-xs px-2 py-0.5 rounded ${darkMode ? 'bg-[#1e1e2a] text-slate-400' : 'bg-slate-100 text-slate-500'}`}>
+                {transaction.category}
+              </span>
+              <span className={`text-xs ${darkMode ? 'text-slate-600' : 'text-slate-400'}`}>
+                {formatDate(transaction.date)}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Amount and Actions Row */}
+        <div className="flex items-center justify-between pl-[52px]">
+          <span className={`text-lg font-bold ${transaction.type === 'income' ? 'text-emerald-500' : 'text-red-500'}`}>
+            {transaction.type === 'income' ? '+' : '-'}
+            {formatCurrency(transaction.amount)}
           </span>
-          <span className={`text-[10px] ${darkMode ? 'text-slate-600' : 'text-slate-400'}`}>
-            {formatDate(transaction.date)}
-          </span>
+          
+          <div className="flex gap-1.5">
+            <button
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
+                ? 'text-slate-500 hover:bg-[#1e1e2a] hover:text-slate-300'
+                : 'text-slate-400 hover:bg-slate-100 hover:text-slate-600'
+              }`}
+              onClick={() => setIsEditing(true)}
+            >
+              <FaEdit size={13} />
+            </button>
+            <button
+              className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
+                ? 'text-slate-500 hover:bg-red-500/10 hover:text-red-400'
+                : 'text-slate-400 hover:bg-red-50 hover:text-red-500'
+              }`}
+              onClick={() => {
+                setIsDeleting(true);
+                setTimeout(handleDelete, 300);
+              }}
+            >
+              <FaTrash size={13} />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Amount */}
-      <span className={`text-sm font-semibold flex-shrink-0 ${transaction.type === 'income' ? 'text-emerald-500' : 'text-red-500'}`}>
-        {transaction.type === 'income' ? '+' : '-'}
-        {formatCurrency(transaction.amount)}
-      </span>
+      {/* Desktop Layout (>= 640px) */}
+      <div className="hidden sm:flex items-center gap-3.5 px-3.5 py-3">
+        {/* Icon */}
+        <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${darkMode
+          ? 'bg-slate-800 text-slate-400'
+          : 'bg-slate-100 text-slate-500'
+        }`}>
+          <IconComponent size={14} />
+        </div>
 
-      {/* Actions */}
-      <div className="flex gap-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-        <button
-          className={`w-9 h-9 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
-            ? 'text-slate-500 hover:bg-[#1e1e2a] hover:text-slate-300'
-            : 'text-slate-400 hover:bg-slate-100 hover:text-slate-600'
-          }`}
-          onClick={() => setIsEditing(true)}
-        >
-          <FaEdit size={11} />
-        </button>
-        <button
-          className={`w-9 h-9 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
-            ? 'text-slate-500 hover:bg-red-500/10 hover:text-red-400'
-            : 'text-slate-400 hover:bg-red-50 hover:text-red-500'
-          }`}
-          onClick={() => {
-            setIsDeleting(true);
-            setTimeout(handleDelete, 300);
-          }}
-        >
-          <FaTrash size={11} />
-        </button>
+        {/* Details */}
+        <div className="flex-1 min-w-0">
+          <h4 className={`text-sm font-medium truncate ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
+            {transaction.title}
+          </h4>
+          <div className="flex items-center gap-2 mt-0.5">
+            <span className={`text-[10px] px-1.5 py-0.5 rounded ${darkMode ? 'bg-[#1e1e2a] text-slate-400' : 'bg-slate-100 text-slate-500'}`}>
+              {transaction.category}
+            </span>
+            <span className={`text-[10px] ${darkMode ? 'text-slate-600' : 'text-slate-400'}`}>
+              {formatDate(transaction.date)}
+            </span>
+          </div>
+        </div>
+
+        {/* Amount */}
+        <span className={`text-sm font-semibold flex-shrink-0 ${transaction.type === 'income' ? 'text-emerald-500' : 'text-red-500'}`}>
+          {transaction.type === 'income' ? '+' : '-'}
+          {formatCurrency(transaction.amount)}
+        </span>
+
+        {/* Actions */}
+        <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+          <button
+            className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
+              ? 'text-slate-500 hover:bg-[#1e1e2a] hover:text-slate-300'
+              : 'text-slate-400 hover:bg-slate-100 hover:text-slate-600'
+            }`}
+            onClick={() => setIsEditing(true)}
+          >
+            <FaEdit size={11} />
+          </button>
+          <button
+            className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all cursor-pointer ${darkMode
+              ? 'text-slate-500 hover:bg-red-500/10 hover:text-red-400'
+              : 'text-slate-400 hover:bg-red-50 hover:text-red-500'
+            }`}
+            onClick={() => {
+              setIsDeleting(true);
+              setTimeout(handleDelete, 300);
+            }}
+          >
+            <FaTrash size={11} />
+          </button>
+        </div>
       </div>
     </div>
   );
