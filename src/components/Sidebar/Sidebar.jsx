@@ -84,7 +84,7 @@ function Sidebar({ collapsed, setCollapsed, mobileMenuOpen, setMobileMenuOpen })
         </div>
         {!collapsed && (
           <span className={`text-lg font-bold tracking-tight whitespace-nowrap ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-            FinTrack
+            HisabKitab
           </span>
         )}
       </div>

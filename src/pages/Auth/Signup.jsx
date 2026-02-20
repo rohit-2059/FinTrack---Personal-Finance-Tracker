@@ -120,7 +120,7 @@ function Signup() {
                 <FaWallet size={16} />
               </div>
               <span className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                FinTrack
+                HisabKitab
               </span>
             </div>
 
@@ -276,7 +276,7 @@ function Signup() {
                     <div className={`w-full border-t ${darkMode ? 'border-[#1e1e2a]' : 'border-slate-200'}`}></div>
                   </div>
                   <div className="relative flex justify-center text-xs">
-                    <span className={`px-3 ${darkMode ? 'bg-[#16161e] text-slate-600' : 'bg-white text-slate-400'}`}>Already on FinTrack?</span>
+                    <span className={`px-3 ${darkMode ? 'bg-[#16161e] text-slate-600' : 'bg-white text-slate-400'}`}>Already on HisabKitab?</span>
                   </div>
                 </div>
 

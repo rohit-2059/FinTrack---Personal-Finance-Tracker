@@ -97,7 +97,7 @@ function Profile() {
 
     const doc = new jsPDF();
     doc.setFontSize(18);
-    doc.text('FinTrack - Transaction Report', 14, 20);
+    doc.text('HisabKitab - Transaction Report', 14, 20);
     doc.setFontSize(10);
     doc.setTextColor(100);
     doc.text(`Generated on ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}`, 14, 28);
@@ -118,7 +118,7 @@ function Profile() {
       alternateRowStyles: { fillColor: [245, 245, 250] },
     });
 
-    doc.save('FinTrack_Transactions.pdf');
+    doc.save('HisabKitab_Transactions.pdf');
     setExportMessage('PDF downloaded!');
     setTimeout(() => setExportMessage(''), 3000);
   };
@@ -134,7 +134,7 @@ function Profile() {
     // Column widths
     ws['!cols'] = [{ wch: 12 }, { wch: 25 }, { wch: 15 }, { wch: 10 }, { wch: 12 }];
 
-    XLSX.writeFile(wb, 'FinTrack_Transactions.xlsx');
+    XLSX.writeFile(wb, 'HisabKitab_Transactions.xlsx');
     setExportMessage('Excel downloaded!');
     setTimeout(() => setExportMessage(''), 3000);
   };

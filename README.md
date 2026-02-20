@@ -1,4 +1,4 @@
-# 💰 FinTrack - Personal Finance Tracker
+# 💰 HisabKitab - Personal Finance Tracker
 
 A comprehensive web application for managing personal finances, tracking expenses and income, and gaining insights into spending habits through interactive visualizations.
 
@@ -8,9 +8,9 @@ A comprehensive web application for managing personal finances, tracking expense
 
 ## 📋 About The Project
 
-FinTrack is a modern, user-friendly personal finance management application that helps users take control of their financial life. Built with React and Firebase, it provides real-time transaction tracking, detailed analytics, and secure cloud storage for all your financial data.
+HisabKitab is a modern, user-friendly personal finance management application that helps users take control of their financial life. Built with React and Firebase, it provides real-time transaction tracking, detailed analytics, and secure cloud storage for all your financial data.
 
-Whether you're tracking daily expenses, monitoring monthly budgets, or analyzing spending patterns, FinTrack offers an intuitive interface with powerful features to help you make informed financial decisions.
+Whether you're tracking daily expenses, monitoring monthly budgets, or analyzing spending patterns, HisabKitab offers an intuitive interface with powerful features to help you make informed financial decisions.
 
 ## ✨ Features
 

@@ -1,12 +1,12 @@
 # Google Authentication Setup
 
-To enable Google Sign-In in your FinTrack app, follow these steps:
+To enable Google Sign-In in your HisabKitab app, follow these steps:
 
 ## Firebase Console Setup
 
 1. **Go to Firebase Console**
    - Visit https://console.firebase.google.com/
-   - Select your FinTrack project
+   - Select your HisabKitab project
 
 2. **Enable Google Authentication**
    - Navigate to **Authentication** in the left sidebar
@@ -14,7 +14,7 @@ To enable Google Sign-In in your FinTrack app, follow these steps:
    - Find **Google** in the list of providers
    - Click on **Google** to expand it
    - Toggle the **Enable** switch to ON
-   - Provide a **Project public-facing name** (e.g., "FinTrack")
+   - Provide a **Project public-facing name** (e.g., "HisabKitab")
    - Provide a **Support email** (your email address)
    - Click **Save**
 

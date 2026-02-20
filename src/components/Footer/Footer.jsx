@@ -39,7 +39,7 @@ function Footer() {
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            © {new Date().getFullYear()} FinTrack. Built by Rohit
+            © {new Date().getFullYear()} HisabKitab. Built by Rohit
           </p>
 
           {/* Social Links */}

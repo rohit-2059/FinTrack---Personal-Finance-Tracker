@@ -85,7 +85,7 @@ function Login() {
                 <FaWallet size={16} />
               </div>
               <span className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                FinTrack
+                HisabKitab
               </span>
             </div>
 
@@ -201,7 +201,7 @@ function Login() {
                     <div className={`w-full border-t ${darkMode ? 'border-[#1e1e2a]' : 'border-slate-200'}`}></div>
                   </div>
                   <div className="relative flex justify-center text-xs">
-                    <span className={`px-3 ${darkMode ? 'bg-[#16161e] text-slate-600' : 'bg-white text-slate-400'}`}>New to FinTrack?</span>
+                    <span className={`px-3 ${darkMode ? 'bg-[#16161e] text-slate-600' : 'bg-white text-slate-400'}`}>New to HisabKitab?</span>
                   </div>
                 </div>
 
@@ -238,7 +238,7 @@ function Login() {
             <div className="absolute inset-0 flex flex-col justify-end p-10">
               <h3 className="text-4xl font-bold text-white mb-4 leading-tight">Manage Your Finances Smarter</h3>
               <p className="text-base text-slate-300 leading-relaxed max-w-lg">
-                Track expenses, visualize spending patterns, and take control of your budget with FinTrack&apos;s powerful dashboard.
+                Track expenses, visualize spending patterns, and take control of your budget with HisabKitab&apos;s powerful dashboard.
               </p>
             </div>
           </div>

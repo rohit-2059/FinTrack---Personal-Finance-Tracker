@@ -43,7 +43,7 @@ function Navbar() {
               <FaWallet size={16} />
             </div>
             <span className={`text-xl font-bold tracking-tight ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              FinTrack
+              HisabKitab
             </span>
           </Link>
 
